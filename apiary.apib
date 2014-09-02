@@ -8,6 +8,7 @@ MOM API is a service similar to its physical paper presence on your table.
 ### Create a System [POST]
 Error codes will be either:</br>
 a) Wrong format of Json</br>
+b) Name is Required</br>
 
 + Request (application/json)
 
@@ -19,6 +20,28 @@ a) Wrong format of Json</br>
 
         { "code": "002" 
         }
+        
++ Response 400 (application/json)
+
+        [
+            { "errorCode": "1" },
+            { "errorCode": "6" }
+        ]
+
+## Device [/systems/{code}]
+### Update a Device [POST]
+Error codes will be either:</br>
+a) Wrong format of Json</br>
+b) Name is Required</br>
+
++ Request (application/json)
+
+        { "name": "adms", 
+          "user": "John"
+        }
+        
++ Response 200 (application/json)
+
         
 + Response 400 (application/json)
 
