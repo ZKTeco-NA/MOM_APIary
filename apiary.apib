@@ -4,6 +4,39 @@ HOST: http://www.google.com
 # MOM
 MOM API is a service similar to its physical paper presence on your table.
 
+#Group Systems
+System related resources of the **Systems API**
+
+## Systems Collection [/systems?{code}{name}{user}{status}{fromDate}{toDate}{pagination}{offset}]
+### List Systems [GET]
+
++ Parameters
+    + code (optional, string, `004`) ... Text `code` of the desired system(s).
+    + name (optional, string, `system 1`) ... Text `name` of the desired system(s).
+    + user (optional, string, `Mark`) ... Text `create user` of the desired system(s).
+    + status (optional, number, `2`) ... Numeric `status` of the desired system(s). Lookup value.
+    + fromDate (optional, string, `1-1-2014`) ... Date `from create date` of the desired system(s).
+    + toDate (optional, string, `15-10-2014`) ... Date `to create date` of the desired system(s).
+    + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
+    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+
++ Response 200 (application/json)
+
+        [
+            { "code": "001", 
+              "name": "system 1", 
+              "user": "Tom", 
+              "status": 2, 
+              "createDate": "01-09-2014"
+            }, 
+            { "code": "003",
+              "name": "system xyz", 
+              "user": "Mark", 
+              "status": 1, 
+              "createDate": "15-05-2014",
+            }
+        ]
+
 ## Systems Collection [/apis/systems]
 ### Create a System [POST]
 Error codes will be either:</br>
