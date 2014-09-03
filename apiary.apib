@@ -57,8 +57,8 @@ b) Name is Required</br>
 + Response 400 (application/json)
 
         [
-            { "errorCode": "1" },
-            { "errorCode": "6" }
+            { "errorCode": "E1" },
+            { "errorCode": "E3" }
         ]
 
 ## System [/apis/systems/{code}]
@@ -80,6 +80,11 @@ b) Name is Required</br>
 + Response 400 (application/json)
 
         [
-            { "errorCode": "1" },
-            { "errorCode": "6" }
+            { "errorCode": "E1" },
+            { "errorCode": "E3" }
         ]
+        
+### Remove a System [DELETE]
++ Response 204
++ Response 400 (application/json)
+{ "errorCode": "E3" }
