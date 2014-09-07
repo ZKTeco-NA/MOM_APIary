@@ -90,3 +90,32 @@ b) Name is Required</br>
 + Response 400 (application/json)
 
         { "errorCode": "E3" }
+        
+        
+#Group Groups
+Group related resources of the **Groups API**
+
+## Groups Collection [/apis/groups]
+### Create a Group [POST]
+Error codes will be either:</br>
+a) Wrong format of Json</br>
+b) Name is Required</br>
+c) System Doesnt Exist</br>
+
++ Request (application/json)
+
+        { "name": "first floor",
+          "systemCode": "adms",
+          "user": "John"
+        }
+        
++ Response 201 (application/json)
+
+        []
+        
++ Response 400 (application/json)
+
+        [
+            { "errorCode": "E1" },
+            { "errorCode": "E3" }
+        ]
