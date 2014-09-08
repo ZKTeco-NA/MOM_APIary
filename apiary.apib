@@ -84,7 +84,8 @@ b) Name is Required</br>
             { "errorCode": "E3" }
         ]
         
-### Remove a System [DELETE]
+## System [/apis/systems/delete/{code}]
+### Remove a System [POST]
 + Response 204
 
 + Response 400 (application/json)
@@ -118,7 +119,7 @@ c) System Doesnt Exist</br>
 
         [
             { "errorCode": "E1" },
-            { "errorCode": "E3" }
+            { "errorCode": "E6" }
         ]
 
 ## Group [/apis/groups/{code}]
@@ -140,5 +141,14 @@ b) Name is Required</br>
 
         [
             { "errorCode": "E1" },
-            { "errorCode": "E3" }
+            { "errorCode": "E6" }
         ]
+        
+        
+## Group [/apis/groups/delete/{code}]
+### Remove a Group [POST]
++ Response 204
+
++ Response 400 (application/json)
+
+        { "errorCode": "E6" }
