@@ -152,3 +152,33 @@ b) Name is Required</br>
 + Response 400 (application/json)
 
         { "errorCode": "E6" }
+        
+        
+#Group systemDevice
+Group related resources of the **SystemDevices API**
+
+## SystemDevice Collection [/apis/systemDevices]
+### Create a SystemDevice Link [POST]
+Error codes will be either:</br>
+a) Wrong format of Json</br>
+b) Device Serial Number is Required</br>
+c) System Doesnt Exist</br>
+
++ Request (application/json)
+
+        { "sn": "first floor",
+          "systemCode": "adms",
+          "user": "John"
+        }
+        
++ Response 201 (application/json)
+
+        { "id": "12362" 
+        }
+
++ Response 400 (application/json)
+
+        [
+            { "errorCode": "E7" },
+            { "errorCode": "E8" }
+        ]
