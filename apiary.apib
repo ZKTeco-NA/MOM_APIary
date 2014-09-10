@@ -184,7 +184,7 @@ Group related resources of the **SystemDevices API**
             }
         ]
 
-## SystemDevice Collection [/apis/systemDevices]
+## SystemDevice [/apis/systemDevices]
 ### Create a SystemDevice Link [POST]
 Error codes will be either:</br>
 a) Wrong format of Json</br>
@@ -209,3 +209,12 @@ c) System Doesnt Exist</br>
             { "errorCode": "E7" },
             { "errorCode": "E8" }
         ]
+
+## SystemDevice [/apis/systemDevices/delete/{id}]
+### Remove a systemDevices [POST]
++ Response 204
+
++ Response 400 (application/json)
+
+        { "errorCode": "E9" }
+  
