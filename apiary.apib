@@ -157,6 +157,33 @@ b) Name is Required</br>
 #Group systemDevice
 Group related resources of the **SystemDevices API**
 
+## SystemDevices Collection [/systemDevices?{systemCode}{pagination}{offset}]
+### List SystemDevices [GET]
+
++ Parameters
+    + systemCode (optional, string, `004`) ... Text `systemCode` of the desired system(s).
+    + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
+    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+
++ Response 200 (application/json)
+
+        [
+            { "id": "12364",
+              "systemCode": "001", 
+              "sn": "12364974565", 
+              "user": "Tom", 
+              "status": 2, 
+              "createDate": "01-09-2014"
+            }, 
+            { "id": "12365",
+              "systemCode": "002", 
+              "sn": "123665415", 
+              "user": "Mark", 
+              "status": 1, 
+              "createDate": "15-05-2014",
+            }
+        ]
+
 ## SystemDevice Collection [/apis/systemDevices]
 ### Create a SystemDevice Link [POST]
 Error codes will be either:</br>
