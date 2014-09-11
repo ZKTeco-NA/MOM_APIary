@@ -96,6 +96,47 @@ b) Name is Required</br>
 #Group Groups
 Group related resources of the **Groups API**
 
+## Groups Collection [/apis/groups?{code}{name}{user}{systemCode}{fromDate}{toDate}{pagination}{offset}]
+### List Groups [GET]
+
++ Parameters
+    + code (optional, string, `004-abc`) ... Text `code` of the desired group(s).
+    + name (optional, string, `group 1`) ... Text `name` of the desired group(s).
+    + user (optional, string, `Mark`) ... Text `create user` of the desired group(s).
+    + systemCode (optional, string, `020`) ... Text `system code` of the desired group(s).
+    + fromDate (optional, string, `1-1-2014`) ... Date `from create date` of the desired group(s).
+    + toDate (optional, string, `15-10-2014`) ... Date `to create date` of the desired group(s).
+    + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
+    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+
++ Response 200 (application/json)
+
+        [
+            { "code": "001", 
+              "name": "system 1", 
+              "user": "Tom", 
+              "system": {
+                  "status":1,
+                  "name":"System 1",
+                  "code":"001",
+                  "createDate":"Tue Sep 09 15:40:23 EEST 2014",
+                  "user":"Tom"}, 
+              "createDate": "01-09-2014"
+            }, 
+            { "code": "003",
+              "name": "system xyz", 
+              "user": "Mark", 
+              "system": {
+                "status":1,
+                "name":"System 12",
+                "code":"021",
+                "user":"Mark",
+                "createDate":"Tue Sep 09 15:40:23 EEST 2014"}, 
+              "createDate": "15-05-2014",
+            }
+        ]
+
+
 ## Groups Collection [/apis/groups]
 ### Create a Group [POST]
 Error codes will be either:</br>
