@@ -259,3 +259,68 @@ c) System Doesnt Exist</br>
 
         { "errorCode": "E9" }
   
+
+#Group Group's Devices
+Group related resources of the **Group's Devices API**
+
+## Group Devices Collection [/groupDevices?{groupCode}{pagination}{offset}]
+### List group's devices given group code [GET]
+
++ Parameters
+    + groupCode (optional, string, `004-001`) ... Text `groupCode` of the desired group(s).
+    + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
+    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+
++ Response 200 (application/json)
+
+        [
+            { "id": "12364",
+              "group":{"system":"004","name":"ADMS","code":"004-001","createDate":"Tue Nov 09 15:40:23 EEST 2014","user":""} 
+              "sn": "12364974565", 
+              "user": "Tom", 
+              "status": 2, 
+              "createDate": "11-11-2014"
+            }, 
+            { "id": "12365",
+              "group":{"system":"004","name":"ADMS","code":"004-001","createDate":"Tue Nov 09 15:40:23 EEST 2014","user":""}
+              "sn": "123665415", 
+              "user": "Mark", 
+              "status": 1, 
+              "createDate": "15-11-2014",
+            }
+        ]
+
+## Group's Device [/apis/groupDevices]
+### Create a link between group and device [POST]
+Error codes will be either:</br>
+a) Wrong format of JSON</br>
+b) Device serial number is required</br>
+c) Group does not exist</br>
+
++ Request (application/json)
+
+        { "sn": "12365",
+          "groupCode": "004-001",
+          "user": "Mark"
+        }
+        
++ Response 201 (application/json)
+
+        { "id": "12362" 
+        }
+
++ Response 400 (application/json)
+
+        [
+            { "errorCode": "E7" },
+            { "errorCode": "E8" }
+        ]
+
+## Group's Device [/apis/groupDevices/delete/{id}]
+### Remove a device from a group [POST]
++ Response 204
+
++ Response 400 (application/json)
+
+        { "errorCode": "E9" }
+  
