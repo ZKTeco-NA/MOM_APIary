@@ -343,4 +343,17 @@ c) Group does not exist</br>
 + Response 400 (application/json)
 
         { "errorCode": "E9" }
+        
+## Group's Device [/apis/multi/groupDevices/delete]
+### Remove multiple devices links between its group [POST]
++ Request (application/json)
+
+        [{ "id": "19"},{"id": "20"}]
+
++ Response 204
+
++ Response 400 (application/json)
+
+        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]  
+
   
