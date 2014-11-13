@@ -335,6 +335,53 @@ c) Group does not exist</br>
             { "errorCode": "E7" },
             { "errorCode": "E8" }
         ]
+        
+## Group's Device [/apis/multi/groupDevices]
+### Create multiple links between group and given devices [POST]
+Error codes will be either:</br>
+a) Wrong format of JSON</br>
+b) Device serial number is required</br>
+c) Group does not exist</br>
+
++ Request (application/json)
+
+        [{ "sn": "12365",
+          "groupCode": "004-001",
+          "user": "Mark"
+        },
+        { "sn": "32140",
+          "groupCode": "004-001",
+          "user": "Mark"
+        }]
+        
++ Response 201 (application/json)
+
+        [{ "id": "19",
+           "sn": "12365",
+           "groupCode": "004-001",
+           "user": "Mark"
+        },
+        { "id": "20",
+           "sn": "32140",
+           "groupCode": "004-001",
+           "user": "Mark"
+        }]
+
++ Response 400 (application/json)
+
+        [{ "id": "19",
+           "sn": "12365",
+           "groupCode": "004-001",
+           "user": "Mark"
+        },
+        { "id": "-1",
+           "sn": "32140",
+           "groupCode": "004-001",
+           "user": "Mark",
+           "errors" :  [{ "errorCode": "E7" }, { "errorCode": "E8" }]
+        }]
+        
+
 
 ## Group's Device [/apis/groupDevices/delete/{id}]
 ### Remove a device from a group [POST]
