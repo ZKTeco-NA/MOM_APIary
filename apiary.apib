@@ -7,7 +7,7 @@ MOM API is a service similar to its physical paper presence on your table.
 #Group Systems
 System related resources of the **Systems API**
 
-## Systems Collection [/apis/systems?{code}{name}{user}{status}{fromDate}{toDate}{pagination}{offset}]
+## Systems Collection [/apis/systems{?code,name,user,status,fromDate,toDate,pagination,offset}]
 ### List Systems [GET]
 
 + Parameters
@@ -96,7 +96,7 @@ b) Name is Required</br>
 #Group Groups
 Group related resources of the **Groups API**
 
-## Groups Collection [/apis/groups?{code}{name}{user}{systemCode}{fromDate}{toDate}{pagination}{offset}]
+## Groups Collection [/apis/groups{?code,name,user,systemCode,fromDate,toDate,pagination,offset}]
 ### List Groups [GET]
 
 + Parameters
@@ -198,7 +198,7 @@ b) Name is Required</br>
 #Group systemDevice
 Group related resources of the **SystemDevices API**
 
-## SystemDevices Collection [/systemDevices?{systemCode}{pagination}{offset}]
+## SystemDevices Collection [/systemDevices{?systemCode,pagination,offset}]
 ### List SystemDevices [GET]
 
 + Parameters
@@ -263,7 +263,7 @@ c) System Doesnt Exist</br>
 #Group Group's Devices
 Group related resources of the **Group's Devices API**
 
-## Group Devices Collection [/apis/groupDevices?{groupCode}{pagination}{offset}]
+## Group Devices Collection [/apis/groupDevices{?groupCode,pagination,offset}]
 ### List group's devices given group code [GET]
 
 + Parameters
