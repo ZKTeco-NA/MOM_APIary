@@ -265,6 +265,8 @@ Group related resources of the **Group's Devices API**
 
 ## Group Devices Collection [/apis/groupDevices{?groupCode,pagination,offset}]
 ### List group's devices given group code [GET]
+Error codes will be either:</br>
+a) Wrong values for pagination or offset</br>
 
 + Parameters
     + groupCode (optional, string, `004-001`) ... Text `groupCode` of the desired group(s).
@@ -310,6 +312,10 @@ Group related resources of the **Group's Devices API**
             }
         ]
 
++ Response 400 (application/json)
+
+        { "errorCode": "E20" }
+        
 ## Group's Device [/apis/groupDevices]
 ### Create a link between group and device [POST]
 Error codes will be either:</br>
