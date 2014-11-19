@@ -510,19 +510,14 @@ c) Group does not exist</br>
 #group OAUTH2
 System related resources of the **OAUTH2 API**
 
-## Create access token [/oauth2/token?grant_type=password&client_id=<your_client_id>&client_secret=<your_client_secret>&username=<username>&password=<password>]
-### Create access token [POST]
-
+## Access Token [/oauth2/token?grant_type=grant_type_value&client_id=<your_client_id>&client_secret=<your_client_secret>{&username,password,refresh_token}]
+### get Access Token (new or refresh) [POST]
 + Response 200
 
         {"expires_in":3600,"token_type":"Bearer","refresh_token":"3b78cd275d7a31ac78c70e90150803bf","access_token":"e674b36f756567a042ad2d2177369958"}
-+ Response 401
-
-## Refresh expired token [/oauth2/token?grant_type=refresh_token&client_id=<your_client_id>&client_secret=<your_client_secret>&refresh_token=<your_refresh_token>]
-### Refresh expired token [POST]
-
 
 + Response 200
 
         {"expires_in":3600,"token_type":"Bearer","access_token":"5faaf4f574436a7955149f451ba778b4"}
+
 + Response 401
