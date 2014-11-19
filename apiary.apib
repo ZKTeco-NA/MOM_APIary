@@ -234,10 +234,16 @@ c) System Doesnt Exist</br>
 
 + Request (application/json)
 
-        { "sn": "first floor",
-          "systemCode": "adms",
-          "user": "John"
-        }
+    + Headers
+    
+            Token: 562541dsshcdshcuds
+
+    + Body
+
+            { "sn": "first floor",
+             "systemCode": "adms",
+             "user": "John"
+            }
         
 + Response 201 (application/json)
 
@@ -416,7 +422,6 @@ System related resources of the **OAUTH2 API**
 
 ## Create access token [/oauth2/token?grant_type=password&client_id=<your_client_id>&client_secret=<your_client_secret>&username=<username>&password=<password>]
 ### Create access token [POST]
-
 
 + Response 200
 
