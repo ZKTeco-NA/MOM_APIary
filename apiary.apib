@@ -508,7 +508,19 @@ c) Group does not exist</br>
 #Group OAUTH2
 System related resources of the **OAUTH2 API**
 ## Access Token [/oauth2/token?grant_type=grant_type_value&client_id=<your_client_id>&client_secret=<your_client_secret>{&username,password,refresh_token}]
-### get Access Token (new or refresh) [POST]
+### get Access Token [POST]
+
++ Parameters
+    + grant_type (required, string, `password or refresh_token`) ... Text `grant_type`.
+    + client_id (required, string, `client_id`) ... Text `client_id`.
+    + client_secret (required, string, `client_secret`) ... Text `client_secret`.
+    + username (optional, string, `admin`) ... Text `username` required in case of grant type: password.
+    + password (optional, string, `admin`) ... Text `password` required in case of grant type: password.
+    + refresh_token (optional, string, `454as6fasasfjaosfa`) ... Text `refresh_token` required in case of grant type: refresh_token.
+    
++ Request (application/x-www-form-urlencoded)
+
+    
 + Response 200
 
         {"expires_in":3600,"token_type":"Bearer","refresh_token":"3b78cd275d7a31ac78c70e90150803bf","access_token":"e674b36f756567a042ad2d2177369958"}
@@ -518,3 +530,4 @@ System related resources of the **OAUTH2 API**
         {"expires_in":3600,"token_type":"Bearer","access_token":"5faaf4f574436a7955149f451ba778b4"}
 
 + Response 401
+
