@@ -20,6 +20,12 @@ System related resources of the **Systems API**
     + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
     + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
 
++ Request
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
 + Response 200 (application/json)
 
         [
@@ -45,9 +51,15 @@ b) Name is Required</br>
 
 + Request (application/json)
 
-        { "name": "adms", 
-          "user": "John"
-        }
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
+    + Body
+    
+            { "name": "adms", 
+              "user": "John"
+            }
         
 + Response 201 (application/json)
 
@@ -69,10 +81,16 @@ b) Name is Required</br>
 
 + Request (application/json)
 
-        { "name": "adms", 
-          "user": "John",
-          "status": 2
-        }
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
+    + Body
+    
+            { "name": "adms", 
+              "user": "John",
+              "status": 2
+            }
         
 + Response 200
 
@@ -86,6 +104,12 @@ b) Name is Required</br>
         
 ## System [/apis/systems/delete/{code}]
 ### Remove a System [POST]
++ Request
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
 + Response 204
 
 + Response 400 (application/json)
@@ -108,6 +132,12 @@ Group related resources of the **Groups API**
     + toDate (optional, string, `15-10-2014`) ... Date `to create date` of the desired group(s).
     + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
     + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+
++ Request
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
 
 + Response 200 (application/json)
 
@@ -146,10 +176,16 @@ c) System Doesnt Exist</br>
 
 + Request (application/json)
 
-        { "name": "first floor",
-          "systemCode": "adms",
-          "user": "John"
-        }
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
+    + Body
+    
+            { "name": "first floor",
+              "systemCode": "adms",
+              "user": "John"
+            }
         
 + Response 201 (application/json)
 
@@ -171,9 +207,15 @@ b) Name is Required</br>
 
 + Request (application/json)
 
-        { "name": "secondFloorGP", 
-          "user": "John"
-        }
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
+    + Body
+    
+            { "name": "secondFloorGP", 
+              "user": "John"
+            }
         
 + Response 200
 
@@ -188,6 +230,12 @@ b) Name is Required</br>
         
 ## Group [/apis/groups/delete/{code}]
 ### Remove a Group [POST]
++ Request
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
 + Response 204
 
 + Response 400 (application/json)
@@ -205,6 +253,12 @@ Group related resources of the **SystemDevices API**
     + systemCode (optional, string, `004`) ... Text `systemCode` of the desired system(s).
     + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
     + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
 
 + Response 200 (application/json)
 
@@ -236,7 +290,7 @@ c) System Doesnt Exist</br>
 
     + Headers
     
-            Token: 562541dsshcdshcuds
+            Authorization: Bearer <your_access_token>
 
     + Body
 
@@ -259,6 +313,12 @@ c) System Doesnt Exist</br>
 
 ## SystemDevice [/apis/systemDevices/delete/{id}]
 ### Remove a systemDevices [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
 + Response 204
 
 + Response 400 (application/json)
@@ -278,6 +338,12 @@ a) Wrong values for pagination or offset</br>
     + groupCode (optional, string, `004-001`) ... Text `groupCode` of the desired group(s).
     + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
     + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
 
 + Response 200 (application/json)
 
@@ -331,10 +397,16 @@ c) Group does not exist</br>
 
 + Request (application/json)
 
-        { "sn": "12365",
-          "groupCode": "004-001",
-          "user": "Mark"
-        }
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
+    + Body
+    
+            { "sn": "12365",
+              "groupCode": "004-001",
+              "user": "Mark"
+            }
         
 + Response 201 (application/json)
 
@@ -357,14 +429,20 @@ c) Group does not exist</br>
 
 + Request (application/json)
 
-        [{ "sn": "12365",
-          "groupCode": "004-001",
-          "user": "Mark"
-        },
-        { "sn": "32140",
-          "groupCode": "004-001",
-          "user": "Mark"
-        }]
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
+    + Body
+    
+            [{ "sn": "12365",
+              "groupCode": "004-001",
+              "user": "Mark"
+            },
+            { "sn": "32140",
+              "groupCode": "004-001",
+              "user": "Mark"
+            }]
         
 + Response 201 (application/json)
 
@@ -397,6 +475,12 @@ c) Group does not exist</br>
 
 ## Group's Device [/apis/groupDevices/delete/{id}]
 ### Remove a device from a group [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
 + Response 204
 
 + Response 400 (application/json)
@@ -407,7 +491,13 @@ c) Group does not exist</br>
 ### Remove multiple devices links between its group [POST]
 + Request (application/json)
 
-        [{ "id": "19"},{"id": "20"}]
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
+    + Body
+    
+            [{ "id": "19"},{"id": "20"}]
 
 + Response 204
 
