@@ -324,6 +324,58 @@ c) System Doesnt Exist</br>
 + Response 400 (application/json)
 
         { "errorCode": "E9" }
+        
+## SystemDevice [/apis/multi/systemDevices]
+### Create multiple links between system and given devices [POST]
+Error codes will be either:</br>
+a) Wrong format of JSON</br>
+b) Device serial number is required</br>
+c) System does not exist</br>
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
+    + Body
+    
+            [{ "sn": "12365",
+              "systemCode": "004-001",
+              "user": "Mark"
+            },
+            { "sn": "32140",
+              "systemCode": "004-001",
+              "user": "Mark"
+            }]
+        
++ Response 201 (application/json)
+
+        [{ "id": "19",
+           "sn": "12365",
+           "systemCode": "004-001",
+           "user": "Mark"
+        },
+        { "id": "20",
+           "sn": "32140",
+           "systemCode": "004-001",
+           "user": "Mark"
+        }]
+
++ Response 400 (application/json)
+
+        [{ "id": "19",
+           "sn": "12365",
+           "systemCode": "004-001",
+           "user": "Mark"
+        },
+        { "id": "-1",
+           "sn": "32140",
+           "systemCode": "004-001",
+           "user": "Mark",
+           "errors" :  [{ "errorCode": "E7" }, { "errorCode": "E8" }]
+        }]
+        
   
 
 #Group Group's Devices
@@ -387,7 +439,7 @@ a) Wrong values for pagination or offset</br>
 + Response 400 (application/json)
 
         { "errorCode": "E20" }
-        
+
 ## Group's Device [/apis/groupDevices]
 ### Create a link between group and device [POST]
 Error codes will be either:</br>
