@@ -310,20 +310,6 @@ c) System Doesnt Exist</br>
             { "errorCode": "E7" },
             { "errorCode": "E8" }
         ]
-
-## SystemDevice [/apis/systemDevices/delete/{id}]
-### Remove a systemDevices [POST]
-+ Request (application/json)
-
-    + Headers
-    
-            Authorization: Bearer <your_access_token>
-
-+ Response 204
-
-+ Response 400 (application/json)
-
-        { "errorCode": "E9" }
         
 ## SystemDevice [/apis/multi/systemDevices]
 ### Create multiple links between system and given devices [POST]
@@ -375,7 +361,39 @@ c) System does not exist</br>
            "user": "Mark",
            "errors" :  [{ "errorCode": "E7" }, { "errorCode": "E8" }]
         }]
+ 
+## SystemDevice [/apis/systemDevices/delete/{id}]
+### Remove a systemDevices [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
++ Response 204
+
++ Response 400 (application/json)
+
+        { "errorCode": "E9" }
         
+       
+## SystemDevice Device [/apis/multi/systemDevices/delete]
+### Remove multiple devices links between its system [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer <your_access_token>
+
+    + Body
+    
+            [{ "id": "19"},{"id": "20"}]
+
++ Response 204
+
++ Response 400 (application/json)
+
+        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]  
   
 
 #Group Group's Devices
