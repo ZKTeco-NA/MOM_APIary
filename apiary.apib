@@ -311,7 +311,7 @@ c) System Doesnt Exist</br>
             { "errorCode": "E8" }
         ]
         
-## SystemDevice [/apis/multi/systemDevices]
+<!-- ## SystemDevice [/apis/multi/systemDevices]
 ### Create multiple links between system and given devices [POST]
 Error codes will be either:</br>
 a) Wrong format of JSON</br>
@@ -346,7 +346,7 @@ c) System does not exist</br>
            "sn": "32140",
            "systemCode": "004-001",
            "user": "Mark"
-        }]
+        }] 
 
 + Response 400 (application/json)
 
@@ -360,7 +360,7 @@ c) System does not exist</br>
            "systemCode": "004-001",
            "user": "Mark",
            "errors" :  [{ "errorCode": "E7" }, { "errorCode": "E8" }]
-        }]
+        }] -->
  
 ## SystemDevice [/apis/systemDevices/delete/{id}]
 ### Remove a systemDevices [POST]
@@ -376,8 +376,8 @@ c) System does not exist</br>
 
         { "errorCode": "E9" }
         
-       
-## SystemDevice Device [/apis/multi/systemDevices/delete]
+        
+<!-- ## SystemDevice Device [/apis/multi/systemDevices/delete]
 ### Remove multiple devices links between its system [POST]
 + Request (application/json)
 
@@ -396,7 +396,7 @@ c) System does not exist</br>
 + Response 400 (application/json)
 
         [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]  
-  
+  -->
 
 #Group Group's Devices
 Group related resources of the **Group's Devices API**
@@ -492,7 +492,7 @@ c) Group does not exist</br>
             { "errorCode": "E8" }
         ]
         
-## Group's Device [/apis/multi/groupDevices]
+<!-- ## Group's Device [/apis/multi/groupDevices]
 ### Create multiple links between group and given devices [POST]
 Error codes will be either:</br>
 a) Wrong format of JSON</br>
@@ -542,7 +542,7 @@ c) Group does not exist</br>
            "user": "Mark",
            "errors" :  [{ "errorCode": "E7" }, { "errorCode": "E8" }]
         }]
-        
+     -->   
 
 
 ## Group's Device [/apis/groupDevices/delete/{id}]
@@ -559,7 +559,7 @@ c) Group does not exist</br>
 
         { "errorCode": "E9" }
         
-## Group's Device [/apis/multi/groupDevices/delete]
+<!-- ## Group's Device [/apis/multi/groupDevices/delete]
 ### Remove multiple devices links between its group [POST]
 + Request (application/json)
 
@@ -577,7 +577,7 @@ c) Group does not exist</br>
 
 + Response 400 (application/json)
 
-        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]  
+        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]  -->
 
 #Group OAUTH2
 System related resources of the **OAUTH2 API**
