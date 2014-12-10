@@ -86,7 +86,7 @@ c) Name contains special characters</br>
         
 + Response 400 (application/json)
 
-        { errors: [
+        { "errors": [
                 { "code": "E1", "message" : "error e1 description" },
                 { "code": "E3", "message" : "error e3 description" }
             ]
@@ -124,7 +124,7 @@ b) Name is Required</br>
         
 + Response 400 (application/json)
 
-        { errors: [
+        { "errors": [
                 { "code": "E1", "message" : "error e1 description" },
                 { "code": "E3", "message" : "error e3 description" }
             ]
@@ -151,7 +151,7 @@ b) Name is Required</br>
 
 + Response 400 (application/json)
 
-        { errors: [
+        { "errors": [
                 { "code": "E1", "message" : "error e1 description" },
                 { "code": "E3", "message" : "error e3 description" }
             ]
@@ -246,10 +246,11 @@ c) System Doesnt Exist</br>
 
 + Response 400 (application/json)
 
-        [
-            { "errorCode": "E1" },
-            { "errorCode": "E6" }
-        ]
+        { "errors" : [ 
+                {"code" : "E1", "messgae" : "error e1 description"},
+                {"code" : "E6", "messgae" : "error e6 description"}
+            ]
+        }
 
 + Response 401
 
@@ -276,10 +277,11 @@ b) Name is Required</br>
         
 + Response 400 (application/json)
 
-        [
-            { "errorCode": "E1" },
-            { "errorCode": "E6" }
-        ]
+        { "errors" : [ 
+                {"code" : "E1", "messgae" : "error e1 description"},
+                {"code" : "E6", "messgae" : "error e6 description"}
+            ]
+        }
 
 + Response 401
 
@@ -295,7 +297,10 @@ b) Name is Required</br>
 
 + Response 400 (application/json)
 
-        { "errorCode": "E6" }
+        { "errors" : [
+                {"code" : "E6", "messgae" : "error e6 description"}
+            ]
+        }
 
 + Response 401
 
@@ -373,10 +378,11 @@ c) System Doesnt Exist</br>
 
 + Response 400 (application/json)
 
-        [
-            { "errorCode": "E7" },
-            { "errorCode": "E8" }
-        ]
+        { "errors" : [ 
+                {"code" : "E7", "messgae" : "error e7 description"},
+                {"code" : "E8", "messgae" : "error e8 description"}
+            ]
+        }
 
 + Response 401
 
@@ -429,7 +435,10 @@ c) System does not exist</br>
            "sn": "32140",
            "systemCode": "004-001",
            "user": "Mark",
-           "errors" :  [{ "errorCode": "E7" }, { "errorCode": "E8" }]
+           "errors" : [ 
+                {"code" : "E7", "messgae" : "error e7 description"},
+                {"code" : "E8", "messgae" : "error e8 description"}
+            ]
         }] 
 
 + Response 401
@@ -447,7 +456,10 @@ c) System does not exist</br>
 
 + Response 400 (application/json)
 
-        { "errorCode": "E9" }
+        { "errors" : [ 
+                {"code" : "E9", "messgae" : "error e9 description"}
+            ]
+        }
 
 + Response 401    
 
@@ -470,8 +482,18 @@ c) System does not exist</br>
 
 + Response 400 (application/json)
 
-        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]
-        
+        [
+            {
+                "id": "19"
+            },
+            {
+                "id": "20", 
+                "errors" : [
+                    {"code" : "E6", "messgae" : "error e6 description"}
+                ]
+            }
+        ]
+
 + Response 401
 -->
 
@@ -569,10 +591,11 @@ c) Group does not exist</br>
 
 + Response 400 (application/json)
 
-        [
-            { "errorCode": "E7" },
-            { "errorCode": "E8" }
-        ]
+        { "errors" : [ 
+                {"code" : "E7", "messgae" : "error e7 description"},
+                {"code" : "E8", "messgae" : "error e8 description"}
+            ]
+        }
 
 + Response 401
 
@@ -625,7 +648,10 @@ c) Group does not exist</br>
            "sn": "32140",
            "groupCode": "004-001",
            "user": "Mark",
-           "errors" :  [{ "errorCode": "E7" }, { "errorCode": "E8" }]
+           "errors" : [ 
+                {"code" : "E7", "messgae" : "error e7 description"},
+                {"code" : "E8", "messgae" : "error e8 description"}
+            ]
         }]
 
 + Response 401
@@ -643,7 +669,10 @@ c) Group does not exist</br>
 
 + Response 400 (application/json)
 
-        { "errorCode": "E9" }
+        { "errors" : [
+                {"code" : "E9", "messgae" : "error e9 description"}
+            ]
+        }
 
 + Response 401
     
@@ -666,7 +695,18 @@ c) Group does not exist</br>
 
 + Response 400 (application/json)
 
-        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]
+        [
+            { 
+                "id": "19"
+            },
+            {
+                "id": "20",
+                "errors" : [ 
+                    {"code" : "E1", "messgae" : "error e1 description"},
+                    {"code" : "E6", "messgae" : "error e6 description"}
+                ]
+            }
+        ]
 
 + Response 401
 -->
