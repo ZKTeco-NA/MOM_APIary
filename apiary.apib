@@ -9,6 +9,8 @@ System related resources of the **Systems API**. You can create a system to star
 
 ## Systems Collection [/apis/systems{?code,name,user,status,fromDate,toDate,limit,offset}]
 ### List Systems [GET]
+Error codes will be either:</br>
+a) Wrong values for limit or offset</br>
 
 + Parameters
     + code (optional, string, `004`) ... Text `code` of the desired system(s).
@@ -49,10 +51,12 @@ System related resources of the **Systems API**. You can create a system to star
                 {"code" : "E20", "messgae" : "error e20 description"}
             ]
         }
+        
++ Response 401
 
 ## Systems Collection [/apis/systems]
 ### Create a System [POST]
-Calling this API will return **a new system**, with a generated code which will be used later.
+Calling this API will return a new system, with a **generated code** which will be used later.
 
 Error codes will be either:</br>
 a) Wrong format of Json</br>
@@ -87,6 +91,8 @@ c) Name contains special characters</br>
                 { "code": "E3", "message" : "error e3 description" }
             ]
         }
+
++ Response 401
 
 ## System [/apis/systems/{code}]
 ### Update a System [POST]
@@ -123,7 +129,9 @@ b) Name is Required</br>
                 { "code": "E3", "message" : "error e3 description" }
             ]
         }
-        
+
++ Response 401
+
 ## System [/apis/systems/delete/{code}]
 ### Remove a System [POST]
 + Request
@@ -148,12 +156,16 @@ b) Name is Required</br>
                 { "code": "E3", "message" : "error e3 description" }
             ]
         }
-        
+
++ Response 401
+
 #Group Groups
 Group related resources of the **Groups API**
 
-## Groups Collection [/apis/groups{?code,name,user,systemCode,fromDate,toDate,pagination,offset}]
+## Groups Collection [/apis/groups{?code,name,user,systemCode,fromDate,toDate,limit,offset}]
 ### List Groups [GET]
+Error codes will be either:</br>
+a) Wrong values for limit or offset</br>
 
 + Parameters
     + code (optional, string, `004-abc`) ... Text `code` of the desired group(s).
@@ -162,8 +174,8 @@ Group related resources of the **Groups API**
     + systemCode (optional, string, `020`) ... Text `system code` of the desired group(s).
     + fromDate (optional, string, `1-1-2014`) ... Date `from create date` of the desired group(s).
     + toDate (optional, string, `15-10-2014`) ... Date `to create date` of the desired group(s).
-    + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
-    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+    + limit (optional, integer, `10`) ... Numeric `limit` of the desired record count or page size. Default 10
+    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the data, where to start count. Default 0.
 
 + Request
 
@@ -197,7 +209,15 @@ Group related resources of the **Groups API**
               "createDate": "15-05-2014",
             }
         ]
+        
++ Response 400 (application/json)
 
+        { "errors" : [ 
+                {"code" : "E20", "messgae" : "error e20 description"}
+            ]
+        }
+
++ Response 401
 
 ## Groups Collection [/apis/groups]
 ### Create a Group [POST]
@@ -231,6 +251,8 @@ c) System Doesnt Exist</br>
             { "errorCode": "E6" }
         ]
 
++ Response 401
+
 ## Group [/apis/groups/{code}]
 ### Update a Group [POST]
 Error codes will be either:</br>
@@ -258,8 +280,9 @@ b) Name is Required</br>
             { "errorCode": "E1" },
             { "errorCode": "E6" }
         ]
-        
-        
+
++ Response 401
+
 ## Group [/apis/groups/delete/{code}]
 ### Remove a Group [POST]
 + Request
@@ -273,18 +296,21 @@ b) Name is Required</br>
 + Response 400 (application/json)
 
         { "errorCode": "E6" }
-        
-        
+
++ Response 401
+
 #Group systemDevice
 Group related resources of the **SystemDevices API**
 
-## SystemDevices Collection [/systemDevices{?systemCode,pagination,offset}]
+## SystemDevices Collection [/systemDevices{?systemCode,limit,offset}]
 ### List SystemDevices [GET]
+Error codes will be either:</br>
+a) Wrong values for limit or offset</br>
 
 + Parameters
     + systemCode (optional, string, `004`) ... Text `systemCode` of the desired system(s).
-    + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
-    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+    + limit (optional, integer, `10`) ... Numeric `limit` of the desired record count or page size. Default 10
+    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the data, where to start count. Default 0.
 
 + Request (application/json)
 
@@ -310,6 +336,15 @@ Group related resources of the **SystemDevices API**
               "createDate": "15-05-2014",
             }
         ]
+        
++ Response 400 (application/json)
+
+        { "errors" : [ 
+                {"code" : "E20", "messgae" : "error e20 description"}
+            ]
+        }
+
++ Response 401
 
 ## SystemDevice [/apis/systemDevices]
 ### Create a SystemDevice Link [POST]
@@ -342,8 +377,11 @@ c) System Doesnt Exist</br>
             { "errorCode": "E7" },
             { "errorCode": "E8" }
         ]
-        
-<!-- ## SystemDevice [/apis/multi/systemDevices]
+
++ Response 401
+
+<!--
+## SystemDevice [/apis/multi/systemDevices]
 ### Create multiple links between system and given devices [POST]
 Error codes will be either:</br>
 a) Wrong format of JSON</br>
@@ -392,7 +430,10 @@ c) System does not exist</br>
            "systemCode": "004-001",
            "user": "Mark",
            "errors" :  [{ "errorCode": "E7" }, { "errorCode": "E8" }]
-        }] -->
+        }] 
+
++ Response 401
+-->
  
 ## SystemDevice [/apis/systemDevices/delete/{id}]
 ### Remove a systemDevices [POST]
@@ -407,9 +448,11 @@ c) System does not exist</br>
 + Response 400 (application/json)
 
         { "errorCode": "E9" }
-        
-        
-<!-- ## SystemDevice Device [/apis/multi/systemDevices/delete]
+
++ Response 401    
+
+<!--
+## SystemDevice Device [/apis/multi/systemDevices/delete]
 ### Remove multiple devices links between its system [POST]
 + Request (application/json)
 
@@ -427,21 +470,23 @@ c) System does not exist</br>
 
 + Response 400 (application/json)
 
-        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]  
-  -->
+        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]
+        
++ Response 401
+-->
 
 #Group Group's Devices
 Group related resources of the **Group's Devices API**
 
-## Group Devices Collection [/apis/groupDevices{?groupCode,pagination,offset}]
+## Group Devices Collection [/apis/groupDevices{?groupCode,limit,offset}]
 ### List group's devices given group code [GET]
 Error codes will be either:</br>
-a) Wrong values for pagination or offset</br>
+a) Wrong values for limit or offset</br>
 
 + Parameters
     + groupCode (optional, string, `004-001`) ... Text `groupCode` of the desired group(s).
-    + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
-    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+    + limit (optional, integer, `10`) ... Numeric `limit` of the desired record count or page size. Default 10
+    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the data, where to start count. Default 0.
 
 + Request (application/json)
 
@@ -490,7 +535,12 @@ a) Wrong values for pagination or offset</br>
 
 + Response 400 (application/json)
 
-        { "errorCode": "E20" }
+        { "errors" : [ 
+                {"code" : "E20", "messgae" : "error e20 description"}
+            ]
+        }
+
++ Response 401
 
 ## Group's Device [/apis/groupDevices]
 ### Create a link between group and device [POST]
@@ -523,8 +573,11 @@ c) Group does not exist</br>
             { "errorCode": "E7" },
             { "errorCode": "E8" }
         ]
-        
-<!-- ## Group's Device [/apis/multi/groupDevices]
+
++ Response 401
+
+<!-- 
+## Group's Device [/apis/multi/groupDevices]
 ### Create multiple links between group and given devices [POST]
 Error codes will be either:</br>
 a) Wrong format of JSON</br>
@@ -574,8 +627,9 @@ c) Group does not exist</br>
            "user": "Mark",
            "errors" :  [{ "errorCode": "E7" }, { "errorCode": "E8" }]
         }]
-     -->   
 
++ Response 401
+-->
 
 ## Group's Device [/apis/groupDevices/delete/{id}]
 ### Remove a device from a group [POST]
@@ -590,8 +644,11 @@ c) Group does not exist</br>
 + Response 400 (application/json)
 
         { "errorCode": "E9" }
-        
-<!-- ## Group's Device [/apis/multi/groupDevices/delete]
+
++ Response 401
+    
+<!--
+## Group's Device [/apis/multi/groupDevices/delete]
 ### Remove multiple devices links between its group [POST]
 + Request (application/json)
 
@@ -609,7 +666,10 @@ c) Group does not exist</br>
 
 + Response 400 (application/json)
 
-        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]  -->
+        [{ "id": "19", "errorCode": "E9"},{"id": "20", "errorCode": "-1"}]
+
++ Response 401
+-->
 
 #Group OAUTH2
 System related resources of the **OAUTH2 API**
