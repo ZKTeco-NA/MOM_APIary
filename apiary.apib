@@ -7,7 +7,7 @@ MOM API is a service to manage middleware of systems and its related devices.
 #Group Systems
 System related resources of the **Systems API**. You can create a system to start send and recieve from your linked devices.
 
-## Systems Collection [/apis/systems{?code,name,user,status,fromDate,toDate,limit,offset}]
+## Systems Collection [/api/v1/systems{?code,name,user,status,fromDate,toDate,limit,offset}]
 ### List Systems [GET]
 Error codes will be either:</br>
 a) Wrong values for limit or offset</br>
@@ -54,7 +54,7 @@ a) Wrong values for limit or offset</br>
         
 + Response 401
 
-## Systems Collection [/apis/systems]
+## Systems Collection [/api/v1/systems]
 ### Create a System [POST]
 Calling this API will return a new system, with a **generated code** which will be used later.
 
@@ -94,7 +94,7 @@ c) Name contains special characters</br>
 
 + Response 401
 
-## System [/apis/systems/{code}]
+## System [/api/v1/systems/{code}]
 ### Update a System [POST]
 Error codes will be either:</br>
 a) Wrong format of Json</br>
@@ -132,7 +132,7 @@ b) Name is Required</br>
 
 + Response 401
 
-## System [/apis/systems/delete/{code}]
+## System [/api/v1/systems/delete/{code}]
 ### Remove a System [POST]
 + Request
 
@@ -162,7 +162,7 @@ b) Name is Required</br>
 #Group Groups
 Group related resources of the **Groups API**
 
-## Groups Collection [/apis/groups{?code,name,user,systemCode,fromDate,toDate,limit,offset}]
+## Groups Collection [/api/v1/groups{?code,name,user,systemCode,fromDate,toDate,limit,offset}]
 ### List Groups [GET]
 Error codes will be either:</br>
 a) Wrong values for limit or offset</br>
@@ -219,7 +219,7 @@ a) Wrong values for limit or offset</br>
 
 + Response 401
 
-## Groups Collection [/apis/groups]
+## Groups Collection [/api/v1/groups]
 ### Create a Group [POST]
 Error codes will be either:</br>
 a) Wrong format of Json</br>
@@ -254,7 +254,7 @@ c) System Doesnt Exist</br>
 
 + Response 401
 
-## Group [/apis/groups/{code}]
+## Group [/api/v1/groups/{code}]
 ### Update a Group [POST]
 Error codes will be either:</br>
 a) Wrong format of Json</br>
@@ -285,7 +285,7 @@ b) Name is Required</br>
 
 + Response 401
 
-## Group [/apis/groups/delete/{code}]
+## Group [/api/v1/groups/delete/{code}]
 ### Remove a Group [POST]
 + Request
 
@@ -307,7 +307,7 @@ b) Name is Required</br>
 #Group systemDevice
 Group related resources of the **SystemDevices API**
 
-## SystemDevices Collection [/systemDevices{?systemCode,limit,offset}]
+## SystemDevices Collection [/api/v1/systemDevices{?systemCode,limit,offset}]
 ### List SystemDevices [GET]
 Error codes will be either:</br>
 a) Wrong values for limit or offset</br>
@@ -351,7 +351,7 @@ a) Wrong values for limit or offset</br>
 
 + Response 401
 
-## SystemDevice [/apis/systemDevices]
+## SystemDevice [/api/v1/systemDevices]
 ### Create a SystemDevice Link [POST]
 Error codes will be either:</br>
 a) Wrong format of Json</br>
@@ -387,7 +387,7 @@ c) System Doesnt Exist</br>
 + Response 401
 
 <!--
-## SystemDevice [/apis/multi/systemDevices]
+## SystemDevice [/api/v1/multi/systemDevices]
 ### Create multiple links between system and given devices [POST]
 Error codes will be either:</br>
 a) Wrong format of JSON</br>
@@ -444,7 +444,7 @@ c) System does not exist</br>
 + Response 401
 -->
  
-## SystemDevice [/apis/systemDevices/delete/{id}]
+## SystemDevice [/api/v1/systemDevices/delete/{id}]
 ### Remove a systemDevices [POST]
 + Request (application/json)
 
@@ -464,7 +464,7 @@ c) System does not exist</br>
 + Response 401    
 
 <!--
-## SystemDevice Device [/apis/multi/systemDevices/delete]
+## SystemDevice Device [/api/v1/multi/systemDevices/delete]
 ### Remove multiple devices links between its system [POST]
 + Request (application/json)
 
@@ -500,7 +500,7 @@ c) System does not exist</br>
 #Group Group's Devices
 Group related resources of the **Group's Devices API**
 
-## Group Devices Collection [/apis/groupDevices{?groupCode,limit,offset}]
+## Group Devices Collection [/api/v1/groupDevices{?groupCode,limit,offset}]
 ### List group's devices given group code [GET]
 Error codes will be either:</br>
 a) Wrong values for limit or offset</br>
@@ -564,7 +564,7 @@ a) Wrong values for limit or offset</br>
 
 + Response 401
 
-## Group's Device [/apis/groupDevices]
+## Group's Device [/api/v1/groupDevices]
 ### Create a link between group and device [POST]
 Error codes will be either:</br>
 a) Wrong format of JSON</br>
@@ -600,7 +600,7 @@ c) Group does not exist</br>
 + Response 401
 
 <!-- 
-## Group's Device [/apis/multi/groupDevices]
+## Group's Device [/api/v1/multi/groupDevices]
 ### Create multiple links between group and given devices [POST]
 Error codes will be either:</br>
 a) Wrong format of JSON</br>
@@ -657,7 +657,7 @@ c) Group does not exist</br>
 + Response 401
 -->
 
-## Group's Device [/apis/groupDevices/delete/{id}]
+## Group's Device [/api/v1/groupDevices/delete/{id}]
 ### Remove a device from a group [POST]
 + Request (application/json)
 
@@ -677,7 +677,7 @@ c) Group does not exist</br>
 + Response 401
     
 <!--
-## Group's Device [/apis/multi/groupDevices/delete]
+## Group's Device [/api/v1/multi/groupDevices/delete]
 ### Remove multiple devices links between its group [POST]
 + Request (application/json)
 
