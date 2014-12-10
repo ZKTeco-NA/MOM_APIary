@@ -2,12 +2,12 @@ FORMAT: 1A
 HOST: http://www.google.com
 
 # MOM
-MOM API is a service similar to its physical paper presence on your table.
+MOM API is a service to manage middleware of systems and its related devices.
 
 #Group Systems
-System related resources of the **Systems API**
+System related resources of the **Systems API**. You can create a system to start send and recieve from your linked devices.
 
-## Systems Collection [/apis/systems{?code,name,user,status,fromDate,toDate,pagination,offset}]
+## Systems Collection [/apis/systems{?code,name,user,status,fromDate,toDate,limit,offset}]
 ### List Systems [GET]
 
 + Parameters
@@ -17,8 +17,8 @@ System related resources of the **Systems API**
     + status (optional, number, `2`) ... Numeric `status` of the desired system(s). Lookup value.
     + fromDate (optional, string, `1-1-2014`) ... Date `from create date` of the desired system(s).
     + toDate (optional, string, `15-10-2014`) ... Date `to create date` of the desired system(s).
-    + pagination (optional, integer, `10`) ... Numeric `pagination` of the desired pagination size.
-    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the pagination.
+    + limit (optional, integer, `10`) ... Numeric `limit` of the desired record count or page size. Default 10
+    + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the data, where to start count. Default 0.
 
 + Request
 
@@ -42,12 +42,22 @@ System related resources of the **Systems API**
               "createDate": "15-05-2014",
             }
         ]
+        
++ Response 400 (application/json)
+
+        { "errors" : [ 
+                {"code" : "E20", "messgae" : "error e20 description"}
+            ]
+        }
 
 ## Systems Collection [/apis/systems]
 ### Create a System [POST]
+Calling this API will return **a new system**, with a generated code which will be used later.
+
 Error codes will be either:</br>
 a) Wrong format of Json</br>
 b) Name is Required</br>
+c) Name contains special characters</br>
 
 + Request (application/json)
 
@@ -61,17 +71,22 @@ b) Name is Required</br>
               "user": "John"
             }
         
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
-        { "code": "002" 
+        { "code": "002",
+          "name": "adms", 
+          "user": "John",
+          "createDate": "15-05-2014",
+          "status" : 1
         }
         
 + Response 400 (application/json)
 
-        [
-            { "errorCode": "E1" },
-            { "errorCode": "E3" }
-        ]
+        { errors: [
+                { "code": "E1", "message" : "error e1 description" },
+                { "code": "E3", "message" : "error e3 description" }
+            ]
+        }
 
 ## System [/apis/systems/{code}]
 ### Update a System [POST]
@@ -94,13 +109,20 @@ b) Name is Required</br>
         
 + Response 200
 
+        { "code": "002",
+          "name": "adms", 
+          "user": "John",
+          "status" : 2,
+          "createDate": "15-05-2014"
+        }
         
 + Response 400 (application/json)
 
-        [
-            { "errorCode": "E1" },
-            { "errorCode": "E3" }
-        ]
+        { errors: [
+                { "code": "E1", "message" : "error e1 description" },
+                { "code": "E3", "message" : "error e3 description" }
+            ]
+        }
         
 ## System [/apis/systems/delete/{code}]
 ### Remove a System [POST]
@@ -110,12 +132,22 @@ b) Name is Required</br>
     
             Authorization: Bearer <your_access_token>
 
-+ Response 204
++ Response 200
+
+        { "code": "002",
+          "name": "adms", 
+          "user": "John",
+          "status" : 2,
+          "createDate": "15-05-2014"
+        }
 
 + Response 400 (application/json)
 
-        { "errorCode": "E3" }
-        
+        { errors: [
+                { "code": "E1", "message" : "error e1 description" },
+                { "code": "E3", "message" : "error e3 description" }
+            ]
+        }
         
 #Group Groups
 Group related resources of the **Groups API**
@@ -187,7 +219,7 @@ c) System Doesnt Exist</br>
               "user": "John"
             }
         
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         { "code": "002" 
         }
@@ -236,7 +268,7 @@ b) Name is Required</br>
     
             Authorization: Bearer <your_access_token>
 
-+ Response 204
++ Response 200
 
 + Response 400 (application/json)
 
@@ -299,7 +331,7 @@ c) System Doesnt Exist</br>
              "user": "John"
             }
         
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         { "id": "12362" 
         }
@@ -335,7 +367,7 @@ c) System does not exist</br>
               "user": "Mark"
             }]
         
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         [{ "id": "19",
            "sn": "12365",
@@ -370,7 +402,7 @@ c) System does not exist</br>
     
             Authorization: Bearer <your_access_token>
 
-+ Response 204
++ Response 200
 
 + Response 400 (application/json)
 
@@ -480,7 +512,7 @@ c) Group does not exist</br>
               "user": "Mark"
             }
         
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         { "id": "12362" 
         }
@@ -516,7 +548,7 @@ c) Group does not exist</br>
               "user": "Mark"
             }]
         
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         [{ "id": "19",
            "sn": "12365",
@@ -553,7 +585,7 @@ c) Group does not exist</br>
     
             Authorization: Bearer <your_access_token>
 
-+ Response 204
++ Response 200
 
 + Response 400 (application/json)
 
