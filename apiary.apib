@@ -31,17 +31,19 @@ a) Wrong values for limit or offset</br>
 + Response 200 (application/json)
 
         [
-            { "code": "001", 
-              "name": "system 1", 
-              "user": "Tom", 
-              "status": 2, 
-              "createDate": "01-09-2014"
+            { 
+                "code": "001", 
+                "name": "system 1", 
+                "user": "Tom", 
+                "status": 2, 
+                "createDate": "01-09-2014"
             }, 
-            { "code": "003",
-              "name": "system xyz", 
-              "user": "Mark", 
-              "status": 1, 
-              "createDate": "15-05-2014",
+            { 
+                "code": "003",
+                "name": "system xyz", 
+                "user": "Mark", 
+                "status": 1, 
+                "createDate": "15-05-2014",
             }
         ]
         
@@ -71,17 +73,19 @@ c) Name contains special characters</br>
 
     + Body
     
-            { "name": "adms", 
-              "user": "John"
+            { 
+                "name": "adms", 
+                "user": "John"
             }
         
 + Response 200 (application/json)
 
-        { "code": "002",
-          "name": "adms", 
-          "user": "John",
-          "createDate": "15-05-2014",
-          "status" : 1
+        { 
+            "code": "002",
+            "name": "adms", 
+            "user": "John",
+            "createDate": "15-05-2014",
+            "status" : 1
         }
         
 + Response 400 (application/json)
@@ -108,18 +112,20 @@ b) Name is Required</br>
 
     + Body
     
-            { "name": "adms", 
-              "user": "John",
-              "status": 2
+            { 
+                "name": "adms", 
+                "user": "John",
+                "status": 2
             }
         
 + Response 200
 
-        { "code": "002",
-          "name": "adms", 
-          "user": "John",
-          "status" : 2,
-          "createDate": "15-05-2014"
+        { 
+            "code": "002",
+            "name": "adms", 
+            "user": "John",
+            "status" : 2,
+            "createDate": "15-05-2014"
         }
         
 + Response 400 (application/json)
@@ -141,11 +147,12 @@ b) Name is Required</br>
 
 + Response 200
 
-        { "code": "002",
-          "name": "adms", 
-          "user": "John",
-          "status" : 2,
-          "createDate": "15-05-2014"
+        { 
+            "code": "002",
+            "name": "adms", 
+            "user": "John",
+            "status" : 2,
+            "createDate": "15-05-2014"
         }
 
 + Response 400 (application/json)
@@ -168,11 +175,12 @@ b) Name is Required</br>
 
 + Response 200
 
-        { "code": "002",
-          "name": "adms", 
-          "user": "John",
-          "status" : 2,
-          "createDate": "15-05-2014"
+        { 
+            "code": "002",
+            "name": "adms", 
+            "user": "John",
+            "status" : 2,
+            "createDate": "15-05-2014"
         }
 
 + Response 400 (application/json)
@@ -212,27 +220,31 @@ a) Wrong values for limit or offset</br>
 + Response 200 (application/json)
 
         [
-            { "code": "001", 
-              "name": "system 1", 
-              "user": "Tom", 
-              "system": {
-                  "status":1,
-                  "name":"System 1",
-                  "code":"001",
-                  "createDate":"Tue Sep 09 15:40:23 EEST 2014",
-                  "user":"Tom"}, 
-              "createDate": "01-09-2014"
+            { 
+                "code": "001_g2", 
+                "name": "group 1", 
+                "user": "Tom", 
+                "system": {
+                    "status":1,
+                    "name":"System 1",
+                    "code":"001",
+                    "user":"Tom",
+                    "createDate":"Tue Sep 09 15:40:23 EEST 2014"
+                }, 
+                "createDate": "01-09-2014"
             }, 
-            { "code": "003",
-              "name": "system xyz", 
-              "user": "Mark", 
-              "system": {
-                "status":1,
-                "name":"System 12",
-                "code":"021",
-                "user":"Mark",
-                "createDate":"Tue Sep 09 15:40:23 EEST 2014"}, 
-              "createDate": "15-05-2014",
+            { 
+                "code": "021_g1",
+                "name": "first floor", 
+                "user": "Mark", 
+                "system": {
+                    "status":1,
+                    "name":"System 12",
+                    "code":"021",
+                    "user":"Mark",
+                    "createDate":"Tue Sep 09 15:40:23 EEST 2014"
+                }, 
+                "createDate": "15-05-2014",
             }
         ]
         
@@ -260,14 +272,26 @@ c) System Doesnt Exist</br>
 
     + Body
     
-            { "name": "first floor",
-              "systemCode": "adms",
-              "user": "John"
+            { 
+                "name": "first floor",
+                "systemCode": "adms",
+                "user": "John"
             }
         
 + Response 200 (application/json)
 
-        { "code": "002" 
+        {
+            "code": "adms_g1",
+            "name": "first floor", 
+            "user": "John", 
+            "system": {
+                "status":1,
+                "name":"ADMS System",
+                "code":"adms",
+                "user":"Mark",
+                "createDate":"Tue Sep 09 15:40:23 EEST 2014"
+            }, 
+            "createDate": "15-05-2014",
         }
 
 + Response 400 (application/json)
@@ -294,13 +318,27 @@ b) Name is Required</br>
 
     + Body
     
-            { "name": "secondFloorGP", 
-              "user": "John"
+            { 
+                "name": "secondFloorGP", 
+                "user": "John"
             }
         
 + Response 200
 
-        
+        {
+            "code": "adms_g1",
+            "name": "secondFloorGP", 
+            "user": "John", 
+            "system": {
+                "status":1,
+                "name":"ADMS System",
+                "code":"adms",
+                "user":"Mark",
+                "createDate":"Tue Sep 09 15:40:23 EEST 2014"
+            }, 
+            "createDate": "15-05-2014",
+        }
+
 + Response 400 (application/json)
 
         { "errors" : [ 
@@ -320,6 +358,20 @@ b) Name is Required</br>
 
 + Response 200
 
+        {
+            "code": "adms_g1",
+            "name": "secondFloorGP", 
+            "user": "John", 
+            "system": {
+                "status":1,
+                "name":"ADMS System",
+                "code":"adms",
+                "user":"Mark",
+                "createDate":"Tue Sep 09 15:40:23 EEST 2014"
+            }, 
+            "createDate": "15-05-2014",
+        }
+
 + Response 400 (application/json)
 
         { "errors" : [
@@ -338,6 +390,20 @@ b) Name is Required</br>
             Authorization: Bearer <your_access_token>
 
 + Response 200
+
+        {
+            "code": "adms_g1",
+            "name": "secondFloorGP", 
+            "user": "John", 
+            "system": {
+                "status":1,
+                "name":"ADMS System",
+                "code":"adms",
+                "user":"Mark",
+                "createDate":"Tue Sep 09 15:40:23 EEST 2014"
+            }, 
+            "createDate": "15-05-2014",
+        }
 
 + Response 400 (application/json)
 
@@ -370,19 +436,32 @@ a) Wrong values for limit or offset</br>
 + Response 200 (application/json)
 
         [
-            { "id": "12364",
-              "system":{"status":1,"name":"ADMS","code":"001","createDate":"Tue Sep 09 15:40:23 EEST 2014","user":""} 
-              "sn": "12364974565", 
-              "user": "Tom", 
-              "status": 2, 
-              "createDate": "01-09-2014"
+            {
+                "id": "12364",
+                "system":{
+                    "status": 1,
+                    "name": "ADMS",
+                    "code": "001",
+                    "createDate": "Tue Sep 09 15:40:23 EEST 2014",
+                    "user": "Mark"} 
+                "sn": "12364974565", 
+                "user": "Tom", 
+                "status": 2, 
+                "createDate": "01-09-2014"
             }, 
-            { "id": "12365",
-              "system":{"status":1,"name":"ADMS","code":"001","createDate":"Tue Sep 09 15:40:23 EEST 2014","user":""}
-              "sn": "123665415", 
-              "user": "Mark", 
-              "status": 1, 
-              "createDate": "15-05-2014",
+            {
+                "id": "12365",
+                "system":{
+                    "status": 1,
+                    "name": "ADMS",
+                    "code": "001",
+                    "createDate": "Tue Sep 09 15:40:23 EEST 2014",
+                    "user": "Tom"
+                }
+                "sn": "123665415", 
+                "user": "Mark", 
+                "status": 1, 
+                "createDate": "15-05-2014",
             }
         ]
         
@@ -410,14 +489,27 @@ c) System Doesnt Exist</br>
 
     + Body
 
-            { "sn": "first floor",
-             "systemCode": "adms",
-             "user": "John"
+            {
+                "sn": "1203650",
+                "systemCode": "002",
+                "user": "John"
             }
         
 + Response 200 (application/json)
 
-        { "id": "12362" 
+        {
+            "id": "12362",
+            "system":{
+                "status": 1,
+                "name": "ADMS",
+                "code": "002",
+                "createDate": "Tue Sep 09 15:40:23 EEST 2014",
+                "user": "Tom"
+            }
+            "sn": "1203650", 
+            "user": "John", 
+            "status": 1, 
+            "createDate": "15-05-2014",
         }
 
 + Response 400 (application/json)
@@ -440,6 +532,21 @@ c) System Doesnt Exist</br>
 
 + Response 200
 
+        {
+            "id": "12362",
+            "system":{
+                "status": 1,
+                "name": "ADMS",
+                "code": "002",
+                "createDate": "Tue Sep 09 15:40:23 EEST 2014",
+                "user": "Tom"
+            }
+            "sn": "1203650", 
+            "user": "John", 
+            "status": 1, 
+            "createDate": "15-05-2014",
+        }
+
 + Response 400 (application/json)
 
         { "errors" : [ 
@@ -458,6 +565,21 @@ c) System Doesnt Exist</br>
             Authorization: Bearer <your_access_token>
 
 + Response 200
+
+        {
+            "id": "12362",
+            "system":{
+                "status": 1,
+                "name": "ADMS",
+                "code": "002",
+                "createDate": "Tue Sep 09 15:40:23 EEST 2014",
+                "user": "Tom"
+            }
+            "sn": "1203650", 
+            "user": "John", 
+            "status": 1, 
+            "createDate": "15-05-2014",
+        }
 
 + Response 400 (application/json)
 
@@ -490,39 +612,45 @@ a) Wrong values for limit or offset</br>
 + Response 200 (application/json)
 
         [
-            { "id": "12364",
-              "group":{"name":"ADMS g1",
-                       "code":"004-001",
-                       "createDate":"Tue Nov 09 15:40:23 EEST 2014",
-                       "user":"Mark",
-                       "system":{"status":1,
-                                 "name":"ADMS",
-                                 "code":"004",
-                                 "createDate":"Wed Nov 09 12:25:07 EET 2014",
-                                 "user":"Tom"
-                        }
+            { 
+                "id": "12364",
+                "group":{
+                    "name":"ADMS g1",
+                    "code":"004-001",
+                    "createDate":"Tue Nov 09 15:40:23 EEST 2014",
+                    "user":"Mark",
+                    "system":{
+                        "status":1,
+                        "name":"ADMS",
+                        "code":"004",
+                        "createDate":"Wed Nov 09 12:25:07 EET 2014",
+                        "user":"Tom"
+                    }
                 } 
-              "sn": "12364974565", 
-              "user": "Tom", 
-              "status": 2, 
-              "createDate": "11-11-2014"
+                "sn": "12364974565", 
+                "user": "Tom", 
+                "status": 2, 
+                "createDate": "11-11-2014"
             }, 
-            { "id": "12365",
-              "group":{"name":"ADMS g1",
-                       "code":"004-001",
-                       "createDate":"Tue Nov 09 15:40:23 EEST 2014",
-                       "user":"Mark",
-                       "system":{"status":1,
-                                 "name":"ADMS",
-                                 "code":"004",
-                                 "createDate":"Wed Nov 09 12:25:07 EET 2014",
-                                 "user":"Tom"
-                        }
+            {
+                "id": "12365",
+                "group":{
+                    "name":"ADMS g1",
+                    "code":"004-001",
+                    "createDate":"Tue Nov 09 15:40:23 EEST 2014",
+                    "user":"Mark",
+                    "system":{
+                        "status":1,
+                        "name":"ADMS",
+                        "code":"004",
+                        "createDate":"Wed Nov 09 12:25:07 EET 2014",
+                        "user":"Tom"
+                    }
                 }
-              "sn": "123665415", 
-              "user": "Mark", 
-              "status": 1, 
-              "createDate": "15-11-2014"
+                "sn": "123665415", 
+                "user": "Mark", 
+                "status": 1, 
+                "createDate": "15-11-2014"
             }
         ]
 
@@ -550,14 +678,33 @@ c) Group does not exist</br>
 
     + Body
     
-            { "sn": "12365",
-              "groupCode": "004-001",
-              "user": "Mark"
+            { 
+                "sn": "12365223",
+                "groupCode": "004-g1",
+                "user": "Mark"
             }
         
 + Response 200 (application/json)
 
-        { "id": "12362" 
+        {
+            "id": "12362",
+            "group":{
+                "name":"ADMS g1",
+                "code":"004-g1",
+                "createDate":"Tue Nov 09 15:40:23 EEST 2014",
+                "user":"Mark",
+                "system":{
+                    "status":1,
+                    "name":"ADMS",
+                    "code":"004",
+                    "createDate":"Wed Nov 09 12:25:07 EET 2014",
+                    "user":"Tom"
+                }
+            }
+            "sn": "12365223", 
+            "user": "Mark", 
+            "status": 1, 
+            "createDate": "15-11-2014"
         }
 
 + Response 400 (application/json)
@@ -580,6 +727,27 @@ c) Group does not exist</br>
 
 + Response 200
 
+        {
+            "id": "12362",
+            "group":{
+                "name":"ADMS g1",
+                "code":"004-g1",
+                "createDate":"Tue Nov 09 15:40:23 EEST 2014",
+                "user":"Mark",
+                "system":{
+                    "status":1,
+                    "name":"ADMS",
+                    "code":"004",
+                    "createDate":"Wed Nov 09 12:25:07 EET 2014",
+                    "user":"Tom"
+                }
+            }
+            "sn": "12365223", 
+            "user": "Mark", 
+            "status": 1, 
+            "createDate": "15-11-2014"
+        }
+
 + Response 400 (application/json)
 
         { "errors" : [
@@ -598,6 +766,27 @@ c) Group does not exist</br>
             Authorization: Bearer <your_access_token>
 
 + Response 200
+
+        {
+            "id": "12362",
+            "group":{
+                "name":"ADMS g1",
+                "code":"004-g1",
+                "createDate":"Tue Nov 09 15:40:23 EEST 2014",
+                "user":"Mark",
+                "system":{
+                    "status":1,
+                    "name":"ADMS",
+                    "code":"004",
+                    "createDate":"Wed Nov 09 12:25:07 EET 2014",
+                    "user":"Tom"
+                }
+            }
+            "sn": "12365223", 
+            "user": "Mark", 
+            "status": 1, 
+            "createDate": "15-11-2014"
+        }
 
 + Response 400 (application/json)
 
