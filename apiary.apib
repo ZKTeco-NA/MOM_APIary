@@ -416,13 +416,14 @@ b) Name is Required</br>
 #Group SystemDevices
 Group related resources of the **SystemDevices API**
 
-## SystemDevices Collection [/api/v1/systemDevices{?systemCode,limit,offset}]
+## SystemDevices Collection [/api/v1/systemDevices{?systemCode,sn,limit,offset}]
 ### List SystemDevices [GET]
 Error codes will be either:</br>
 a) Wrong values for limit or offset</br>
 
 + Parameters
     + systemCode (optional, string, `004`) ... Text `systemCode` of the desired system(s).
+    + sn (optional, string, `5420318122`) ... Text `sn` is the serial number of desired device.
     + limit (optional, integer, `10`) ... Numeric `limit` of the desired record count or page size. Default 10
     + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the data, where to start count. Default 0.
 
@@ -592,13 +593,14 @@ c) System Doesnt Exist</br>
 #Group Group's Devices
 Group related resources of the **Group's Devices API**
 
-## Group Devices Collection [/api/v1/groupDevices{?groupCode,limit,offset}]
+## Group Devices Collection [/api/v1/groupDevices{?groupCode,sn,limit,offset}]
 ### List group's devices given group code [GET]
 Error codes will be either:</br>
 a) Wrong values for limit or offset</br>
 
 + Parameters
     + groupCode (optional, string, `004-001`) ... Text `groupCode` of the desired group(s).
+    + sn (optional, string, `5420318122`) ... Text `sn` is the serial number of desired device.
     + limit (optional, integer, `10`) ... Numeric `limit` of the desired record count or page size. Default 10
     + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the data, where to start count. Default 0.
 
