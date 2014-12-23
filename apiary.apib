@@ -201,7 +201,7 @@ Error codes will be either:</br>
 a) Wrong values for limit or offset</br>
 
 + Parameters
-    + code (optional, string, `004-abc`) ... Text `code` of the desired group(s).
+    + code (optional, string, `004_g1`) ... Text `code` of the desired group(s).
     + name (optional, string, `group 1`) ... Text `name` of the desired group(s).
     + user (optional, string, `Mark`) ... Text `create user` of the desired group(s).
     + systemCode (optional, string, `020`) ... Text `system code` of the desired group(s).
@@ -599,7 +599,7 @@ Error codes will be either:</br>
 a) Wrong values for limit or offset</br>
 
 + Parameters
-    + groupCode (optional, string, `004-001`) ... Text `groupCode` of the desired group(s).
+    + groupCode (optional, string, `004_g1`) ... Text `groupCode` of the desired group(s).
     + sn (optional, string, `5420318122`) ... Text `sn` is the serial number of desired device.
     + limit (optional, integer, `10`) ... Numeric `limit` of the desired record count or page size. Default 10
     + offset (optional, integer, `0`) ... Numeric `offset` of the desired offset of the data, where to start count. Default 0.
@@ -617,7 +617,7 @@ a) Wrong values for limit or offset</br>
                 "id": "12364",
                 "group":{
                     "name":"ADMS g1",
-                    "code":"004-001",
+                    "code":"004_g1",
                     "createDate":"Tue Nov 09 15:40:23 EEST 2014",
                     "user":"Mark",
                     "system":{
@@ -637,7 +637,7 @@ a) Wrong values for limit or offset</br>
                 "id": "12365",
                 "group":{
                     "name":"ADMS g1",
-                    "code":"004-001",
+                    "code":"004_g1",
                     "createDate":"Tue Nov 09 15:40:23 EEST 2014",
                     "user":"Mark",
                     "system":{
@@ -845,11 +845,11 @@ c) System does not exist</br>
     + Body
     
             [{ "sn": "12365",
-              "systemCode": "004-001",
+              "systemCode": "004_g1",
               "user": "Mark"
             },
             { "sn": "32140",
-              "systemCode": "004-001",
+              "systemCode": "004_g1",
               "user": "Mark"
             }]
         
@@ -857,12 +857,12 @@ c) System does not exist</br>
 
         [{ "id": "19",
            "sn": "12365",
-           "systemCode": "004-001",
+           "systemCode": "004_g1",
            "user": "Mark"
         },
         { "id": "20",
            "sn": "32140",
-           "systemCode": "004-001",
+           "systemCode": "004_g1",
            "user": "Mark"
         }] 
 
@@ -870,12 +870,12 @@ c) System does not exist</br>
 
         [{ "id": "19",
            "sn": "12365",
-           "systemCode": "004-001",
+           "systemCode": "004_g1",
            "user": "Mark"
         },
         { "id": "-1",
            "sn": "32140",
-           "systemCode": "004-001",
+           "systemCode": "004_g1",
            "user": "Mark",
            "errors" : [ 
                 {"code" : "E7", "messgae" : "error e7 description"},
@@ -935,11 +935,11 @@ c) Group does not exist</br>
     + Body
     
             [{ "sn": "12365",
-              "groupCode": "004-001",
+              "groupCode": "004_g1",
               "user": "Mark"
             },
             { "sn": "32140",
-              "groupCode": "004-001",
+              "groupCode": "004_g1",
               "user": "Mark"
             }]
         
@@ -947,12 +947,12 @@ c) Group does not exist</br>
 
         [{ "id": "19",
            "sn": "12365",
-           "groupCode": "004-001",
+           "groupCode": "004_g1",
            "user": "Mark"
         },
         { "id": "20",
            "sn": "32140",
-           "groupCode": "004-001",
+           "groupCode": "004_g1",
            "user": "Mark"
         }]
 
@@ -960,12 +960,12 @@ c) Group does not exist</br>
 
         [{ "id": "19",
            "sn": "12365",
-           "groupCode": "004-001",
+           "groupCode": "004_g1",
            "user": "Mark"
         },
         { "id": "-1",
            "sn": "32140",
-           "groupCode": "004-001",
+           "groupCode": "004_g1",
            "user": "Mark",
            "errors" : [ 
                 {"code" : "E7", "messgae" : "error e7 description"},
