@@ -4,12 +4,66 @@ HOST: http://www.google.com
 # MOM
 MOM API is a service to manage middleware of systems and its related devices.
 
+
+
+#Group Register
+Register related resources of the **Register API**. You can register a new system to start send and recieve from your linked devices.
+
+## Register [/api/v1/register]
+### Register a new System [POST]
+Calling this API will return a new user, client and system, with a **generated client**, **generated code** which will be used later.
+
+Error codes will be either:</br>
+
+a) Wrong format of Json</br>
+
+b) Username is Required</br>
+
+c) System name is Required</br>
+
+d) Name contains special characters</br>
+
+e) Password is Required</br>
+
++ Request (application/json)
+
+    + Body
+    
+            { 
+                "username": "system.1.user", 
+                "password": "System1_password",
+                "email": "admin-email@z.c",
+                "systemName": "ADMS"
+            }
+        
++ Response 200 (application/json)
+
+        {
+            "systemCode": "002",
+            "sendExchange": "sys_002", 
+            "receiveExchange": "sys_reply_002",
+            "vhost": "/",
+            "cleintId": "system1.client_id",
+            "cleintSecret": "cleint_secret",
+            "createDate": "15-05-2014",
+            "status" : 0
+        }
+        
++ Response 400 (application/json)
+
+        { "errors": [
+                { "code": "E1", "message" : "error e1 description" },
+                { "code": "E3", "message" : "error e3 description" }
+            ]
+        }
+
 #Group Systems
 System related resources of the **Systems API**. You can create a system to start send and recieve from your linked devices.
 
 ## Systems Collection [/api/v1/systems{?code,name,user,status,fromDate,toDate,limit,offset}]
 ### List Systems [GET]
 Error codes will be either:</br>
+
 a) Wrong values for limit or offset</br>
 
 + Parameters
@@ -61,8 +115,11 @@ a) Wrong values for limit or offset</br>
 Calling this API will return a new system, with a **generated code** which will be used later.
 
 Error codes will be either:</br>
+
 a) Wrong format of Json</br>
+
 b) Name is Required</br>
+
 c) Name contains special characters</br>
 
 + Request (application/json)
@@ -101,7 +158,9 @@ c) Name contains special characters</br>
 ## System [/api/v1/systems/{code}]
 ### Update a System [POST]
 Error codes will be either:</br>
+
 a) Wrong format of Json</br>
+
 b) Name is Required</br>
 
 + Request (application/json)
@@ -198,6 +257,7 @@ Group related resources of the **Groups API**
 ## Groups Collection [/api/v1/groups{?code,name,user,systemCode,fromDate,toDate,limit,offset}]
 ### List Groups [GET]
 Error codes will be either:</br>
+
 a) Wrong values for limit or offset</br>
 
 + Parameters
@@ -259,8 +319,11 @@ a) Wrong values for limit or offset</br>
 ## Groups Collection [/api/v1/groups]
 ### Create a Group [POST]
 Error codes will be either:</br>
+
 a) Wrong format of Json</br>
+
 b) Name is Required</br>
+
 c) System Doesnt Exist</br>
 
 + Request (application/json)
@@ -306,7 +369,9 @@ c) System Doesnt Exist</br>
 ## Group [/api/v1/groups/{code}]
 ### Update a Group [POST]
 Error codes will be either:</br>
+
 a) Wrong format of Json</br>
+
 b) Name is Required</br>
 
 + Request (application/json)
@@ -419,6 +484,7 @@ Group related resources of the **SystemDevices API**
 ## SystemDevices Collection [/api/v1/systemDevices{?systemCode,sn,limit,offset}]
 ### List SystemDevices [GET]
 Error codes will be either:</br>
+
 a) Wrong values for limit or offset</br>
 
 + Parameters
@@ -477,8 +543,11 @@ a) Wrong values for limit or offset</br>
 ## SystemDevice [/api/v1/systemDevices]
 ### Create a SystemDevice Link [POST]
 Error codes will be either:</br>
+
 a) Wrong format of Json</br>
+
 b) Device Serial Number is Required</br>
+
 c) System Doesnt Exist</br>
 
 + Request (application/json)
@@ -596,6 +665,7 @@ Group related resources of the **Group's Devices API**
 ## Group Devices Collection [/api/v1/groupDevices{?groupCode,sn,limit,offset}]
 ### List group's devices given group code [GET]
 Error codes will be either:</br>
+
 a) Wrong values for limit or offset</br>
 
 + Parameters
@@ -667,8 +737,11 @@ a) Wrong values for limit or offset</br>
 ## Group's Device [/api/v1/groupDevices]
 ### Create a link between group and device [POST]
 Error codes will be either:</br>
+
 a) Wrong format of JSON</br>
+
 b) Device serial number is required</br>
+
 c) Group does not exist</br>
 
 + Request (application/json)
