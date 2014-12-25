@@ -110,6 +110,8 @@ a) Wrong values for limit or offset</br>
         
 + Response 401
 
++ Response 403
+
 ## System [/api/v1/systems]
 ### Create a System [POST]
 Calling this API will return a new system, with a **generated code** which will be used later.
@@ -155,6 +157,8 @@ c) Name contains special characters</br>
 
 + Response 401
 
++ Response 403
+
 ## System [/api/v1/systems/{code}]
 ### Update a System [POST]
 Error codes will be either:</br>
@@ -196,6 +200,8 @@ b) Name is Required</br>
 
 + Response 401
 
++ Response 403
+
 ### Remove a System [DELETE]
 + Request
 
@@ -222,6 +228,8 @@ b) Name is Required</br>
         }
 
 + Response 401
+
++ Response 403
 
 ## System [/api/v1/systems/delete/{code}]
 ### Remove a System [POST]
@@ -250,6 +258,8 @@ b) Name is Required</br>
         }
 
 + Response 401
+
++ Response 403
 
 #Group Groups
 Group related resources of the **Groups API**
@@ -316,6 +326,8 @@ a) Wrong values for limit or offset</br>
 
 + Response 401
 
++ Response 403
+
 ## Groups Collection [/api/v1/groups]
 ### Create a Group [POST]
 Error codes will be either:</br>
@@ -366,6 +378,8 @@ c) System Doesnt Exist</br>
 
 + Response 401
 
++ Response 403
+
 ## Group [/api/v1/groups/{code}]
 ### Update a Group [POST]
 Error codes will be either:</br>
@@ -413,6 +427,8 @@ b) Name is Required</br>
 
 + Response 401
 
++ Response 403
+
 ### Remove a Group [DELETE]
 + Request
 
@@ -444,6 +460,8 @@ b) Name is Required</br>
         }
 
 + Response 401
+
++ Response 403
 
 ## Group [/api/v1/groups/delete/{code}]
 ### Remove a Group [POST]
@@ -477,6 +495,8 @@ b) Name is Required</br>
         }
 
 + Response 401
+
++ Response 403
 
 #Group SystemDevices
 Group related resources of the **SystemDevices API**
@@ -540,6 +560,8 @@ a) Wrong values for limit or offset</br>
 
 + Response 401
 
++ Response 403
+
 ## SystemDevice [/api/v1/systemDevices]
 ### Create a SystemDevice Link [POST]
 Error codes will be either:</br>
@@ -591,6 +613,8 @@ c) System Doesnt Exist</br>
 
 + Response 401
 
++ Response 403
+
 ## SystemDevice [/api/v1/systemDevices/{id}]
 ### Remove a systemDevices [DELETE]
 + Request (application/json)
@@ -625,6 +649,8 @@ c) System Doesnt Exist</br>
 
 + Response 401
 
++ Response 403
+
 ## SystemDevice [/api/v1/systemDevices/delete/{id}]
 ### Remove a systemDevices [POST]
 + Request (application/json)
@@ -658,6 +684,8 @@ c) System Doesnt Exist</br>
         }
 
 + Response 401    
+
++ Response 403
 
 #Group Group's Devices
 Group related resources of the **Group's Devices API**
@@ -734,6 +762,8 @@ a) Wrong values for limit or offset</br>
 
 + Response 401
 
++ Response 403
+
 ## Group's Device [/api/v1/groupDevices]
 ### Create a link between group and device [POST]
 Error codes will be either:</br>
@@ -791,6 +821,8 @@ c) Group does not exist</br>
 
 + Response 401
 
++ Response 403
+
 ## Group's Device [/api/v1/groupDevices/{id}]
 ### Remove a device from a group [DELETE]
 + Request (application/json)
@@ -831,6 +863,8 @@ c) Group does not exist</br>
 
 + Response 401
 
++ Response 403
+
 ## Group's Device [/api/v1/groupDevices/delete/{id}]
 ### Remove a device from a group [POST]
 + Request (application/json)
@@ -870,6 +904,8 @@ c) Group does not exist</br>
         }
 
 + Response 401
+
++ Response 403
 
 #Group OAUTH2
 System related resources of the **OAUTH2 API**
