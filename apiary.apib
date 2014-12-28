@@ -157,6 +157,43 @@ c) Name contains special characters</br>
 
 + Response 403
 
+## System [/api/v1/systems/approve/{code}]
+### Update a System [POST]
+Calling this API will be responsibility of **Administrator**.
+Error codes will be either:</br>
+
+a) Wrong format of Json</br>
+
+b) Name is Required</br>
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer [TOKEN]
+
++ Response 200 (application/json)
+
+        { 
+            "code": "002",
+            "name": "adms", 
+            "user": "John",
+            "status" : 1,
+            "createDate": "15-05-2014"
+        }
+        
++ Response 400 (application/json)
+
+        { "errors": [
+                { "code": "E1", "message" : "error e1 description" },
+                { "code": "E3", "message" : "error e3 description" }
+            ]
+        }
+
++ Response 401
+
++ Response 403
+
 ## System [/api/v1/systems/{code}]
 ### Update a System [POST]
 Error codes will be either:</br>
