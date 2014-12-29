@@ -56,6 +56,42 @@ e) Password is Required</br>
             ]
         }
 
+## Unregister [/api/v1/unregister/{SystemCode}]
+### unregister a System [POST]
+Calling this API will return an unregistered user, client and system.
+
+Error codes will be either:</br>
+
+a) System not found</br>
+
+b) Unauthorized user</br>
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer [TOKEN]
+        
++ Response 200 (application/json)
+
+        {
+            "systemCode": "002",
+            "sendExchange": "sys_002", 
+            "receiveExchange": "sys_reply_002",
+            "vhost": "/",
+            "clientId": "system1.client_id",
+            "clientSecret": "cleint_secret",
+            "status" : 0
+        }
+        
++ Response 400 (application/json)
+
+        { "errors": [
+                { "code": "E1", "message" : "error e1 description" },
+                { "code": "E3", "message" : "error e3 description" }
+            ]
+        }
+
 #Group Systems
 System related resources of the **Systems API**. You can create a system to start send and recieve from your linked devices.
 
