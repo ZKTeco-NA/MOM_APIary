@@ -95,7 +95,7 @@ b) Unauthorized user</br>
 #Group Systems
 System related resources of the **Systems API**. You can create a system to start send and recieve from your linked devices.
 
-## Systems Collection [/api/v1/systems{?code,name,user,status,fromDate,toDate,limit,offset}]
+## Systems Collection [/api/v1/systems{?code,name,status,fromDate,toDate,limit,offset}]
 ### List Systems [GET]
 Error codes will be either:</br>
 
@@ -104,7 +104,6 @@ a) Wrong values for limit or offset</br>
 + Parameters
     + code (optional, string, `004`) ... Text `code` of the desired system(s).
     + name (optional, string, `system 1`) ... Text `name` of the desired system(s).
-    + user (optional, string, `Mark`) ... Text `create user` of the desired system(s).
     + status (optional, number, `2`) ... Numeric `status` of the desired system(s). Lookup value.
     + fromDate (optional, string, `1-1-2014`) ... Date `from create date` of the desired system(s).
     + toDate (optional, string, `15-10-2014`) ... Date `to create date` of the desired system(s).
@@ -130,7 +129,7 @@ a) Wrong values for limit or offset</br>
             { 
                 "code": "003",
                 "name": "system xyz", 
-                "user": "Mark", 
+                "user": "Tom", 
                 "status": 1, 
                 "createDate": "15-05-2014",
             }
@@ -147,6 +146,7 @@ a) Wrong values for limit or offset</br>
 
 + Response 403
 
+<!--
 ## System [/api/v1/systems]
 ### Create a System [POST]
 @DEPRECATED
@@ -194,6 +194,8 @@ c) Name contains special characters</br>
 + Response 401
 
 + Response 403
+
+-->
 
 ## System [/api/v1/systems/approve/{code}]
 ### Approve System [POST]
@@ -275,6 +277,7 @@ b) Name is Required</br>
 
 + Response 403
 
+<!--
 ### Remove a System [DELETE]
 @DEPRECATED
 
@@ -337,11 +340,12 @@ b) Name is Required</br>
 + Response 401
 
 + Response 403
+-->
 
 #Group Groups
 Group related resources of the **Groups API**
 
-## Groups Collection [/api/v1/groups{?code,name,user,systemCode,fromDate,toDate,limit,offset}]
+## Groups Collection [/api/v1/groups{?code,name,systemCode,fromDate,toDate,limit,offset}]
 ### List Groups [GET]
 Error codes will be either:</br>
 
@@ -350,7 +354,6 @@ a) Wrong values for limit or offset</br>
 + Parameters
     + code (optional, string, `004_g1`) ... Text `code` of the desired group(s).
     + name (optional, string, `group 1`) ... Text `name` of the desired group(s).
-    + user (optional, string, `Mark`) ... Text `create user` of the desired group(s).
     + systemCode (optional, string, `020`) ... Text `system code` of the desired group(s).
     + fromDate (optional, string, `1-1-2014`) ... Date `from create date` of the desired group(s).
     + toDate (optional, string, `15-10-2014`) ... Date `to create date` of the desired group(s).
@@ -382,12 +385,12 @@ a) Wrong values for limit or offset</br>
             { 
                 "code": "021_g1",
                 "name": "first floor", 
-                "user": "Mark", 
+                "user": "Tom", 
                 "system": {
                     "status":1,
                     "name":"System 12",
                     "code":"021",
-                    "user":"Mark",
+                    "user":"Tom",
                     "createDate":"Tue Sep 09 15:40:23 EEST 2014"
                 }, 
                 "createDate": "15-05-2014",
@@ -433,7 +436,7 @@ c) System Doesnt Exist</br>
         {
             "code": "adms_g1",
             "name": "first floor", 
-            "user": "John", 
+            "user": "Mark", 
             "system": {
                 "status":1,
                 "name":"ADMS System",
@@ -481,7 +484,7 @@ b) Name is Required</br>
         {
             "code": "adms_g1",
             "name": "secondFloorGP", 
-            "user": "John", 
+            "user": "Mark", 
             "system": {
                 "status":1,
                 "name":"ADMS System",
@@ -516,7 +519,7 @@ b) Name is Required</br>
         {
             "code": "adms_g1",
             "name": "secondFloorGP", 
-            "user": "John", 
+            "user": "Mark", 
             "system": {
                 "status":1,
                 "name":"ADMS System",
@@ -551,7 +554,7 @@ b) Name is Required</br>
         {
             "code": "adms_g1",
             "name": "secondFloorGP", 
-            "user": "John", 
+            "user": "Mark", 
             "system": {
                 "status":1,
                 "name":"ADMS System",
@@ -606,7 +609,7 @@ a) Wrong values for limit or offset</br>
                     "createDate": "Tue Sep 09 15:40:23 EEST 2014",
                     "user": "Mark"} 
                 "sn": "12364974565", 
-                "user": "Tom", 
+                "user": "Mark", 
                 "status": 2, 
                 "createDate": "01-09-2014"
             }, 
@@ -617,7 +620,7 @@ a) Wrong values for limit or offset</br>
                     "name": "ADMS",
                     "code": "001",
                     "createDate": "Tue Sep 09 15:40:23 EEST 2014",
-                    "user": "Tom"
+                    "user": "Mark"
                 }
                 "sn": "123665415", 
                 "user": "Mark", 
@@ -709,7 +712,7 @@ c) System Doesnt Exist</br>
                 "user": "Tom"
             }
             "sn": "1203650", 
-            "user": "John", 
+            "user": "Tom", 
             "status": 1, 
             "createDate": "15-05-2014",
         }
@@ -745,7 +748,7 @@ c) System Doesnt Exist</br>
                 "user": "Tom"
             }
             "sn": "1203650", 
-            "user": "John", 
+            "user": "Tom", 
             "status": 1, 
             "createDate": "15-05-2014",
         }
@@ -791,7 +794,7 @@ a) Wrong values for limit or offset</br>
                     "name":"ADMS g1",
                     "code":"004_g1",
                     "createDate":"Tue Nov 09 15:40:23 EEST 2014",
-                    "user":"Mark",
+                    "user":"Tom",
                     "system":{
                         "status":1,
                         "name":"ADMS",
@@ -811,7 +814,7 @@ a) Wrong values for limit or offset</br>
                     "name":"ADMS g1",
                     "code":"004_g1",
                     "createDate":"Tue Nov 09 15:40:23 EEST 2014",
-                    "user":"Mark",
+                    "user":"Tom",
                     "system":{
                         "status":1,
                         "name":"ADMS",
@@ -821,7 +824,7 @@ a) Wrong values for limit or offset</br>
                     }
                 }
                 "sn": "123665415", 
-                "user": "Mark", 
+                "user": "Tom", 
                 "status": 1, 
                 "createDate": "15-11-2014"
             }
@@ -912,7 +915,7 @@ c) Group does not exist</br>
                 "name":"ADMS g1",
                 "code":"004-g1",
                 "createDate":"Tue Nov 09 15:40:23 EEST 2014",
-                "user":"Mark",
+                "user":"Tom",
                 "system":{
                     "status":1,
                     "name":"ADMS",
@@ -922,7 +925,7 @@ c) Group does not exist</br>
                 }
             }
             "sn": "12365223", 
-            "user": "Mark", 
+            "user": "Tom", 
             "status": 1, 
             "createDate": "15-11-2014"
         }
@@ -954,7 +957,7 @@ c) Group does not exist</br>
                 "name":"ADMS g1",
                 "code":"004-g1",
                 "createDate":"Tue Nov 09 15:40:23 EEST 2014",
-                "user":"Mark",
+                "user":"Tom",
                 "system":{
                     "status":1,
                     "name":"ADMS",
@@ -964,7 +967,7 @@ c) Group does not exist</br>
                 }
             }
             "sn": "12365223", 
-            "user": "Mark", 
+            "user": "Tom", 
             "status": 1, 
             "createDate": "15-11-2014"
         }
