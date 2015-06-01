@@ -762,6 +762,42 @@ c) System Doesnt Exist</br>
 
 + Response 403
 
+## SystemDevice [/api/v1/systemDevices/delete/sn/{sn}]
+### Remove a systemDevices [POST]
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer [TOKEN]
+
++ Response 200 (application/json)
+
+        {
+            "id": "12362",
+            "system":{
+                "status": 1,
+                "name": "ADMS",
+                "code": "002",
+                "createDate": "Tue Sep 09 15:40:23 EEST 2014",
+                "user": "Tom"
+            }
+            "sn": "1203650", 
+            "user": "Tom", 
+            "status": 1, 
+            "createDate": "15-05-2014",
+        }
+
++ Response 400 (application/json)
+
+        { "errors" : [ 
+                {"code" : "E9", "messgae" : "error e9 description"}
+            ]
+        }
+
++ Response 401    
+
++ Response 403
+
 #Group Group's Devices
 Group related resources of the **Group's Devices API**
 
