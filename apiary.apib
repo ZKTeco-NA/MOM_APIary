@@ -127,6 +127,46 @@ e) Password is Required</br>
                 { "code": "E3", "message" : "error e3 description" }
             ]
         }
+        
+## System info [/api/v1/accountDetails]
+### Registered Syetem info[POST]
+Calling this API will return system info like the returned when registered first time.
+
+Error codes will be either:</br>
+
+a) Username is Required</br>
+
+c) Password is Required</br>
+
++ Request (application/json)
+
+    + Body
+    
+            { 
+                "username": "system.1.user", 
+                "password": "System1_password"
+            }
+        
++ Response 200 (application/json)
+
+        {
+            "systemCode": "002",
+            "sendExchange": "sys_002", 
+            "receiveExchange": "sys_reply_002",
+            "vhost": "/",
+            "clientId": "system1.client_id",
+            "clientSecret": "cleint_secret",
+            "status" : 0
+        }
+        
++ Response 400 (application/json)
+
+        { "errors": [
+                { "code": "E1", "message" : "error e1 description" },
+                { "code": "E3", "message" : "error e3 description" }
+            ]
+        }
+
 
 ## Unregister [/api/v1/unregister]
 ### Unregister a System [POST]
